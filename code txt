@@ -1,0 +1,1812 @@
+package proje_eskiz;
+
+
+public abstract class SavasAraclari {
+ 
+ 
+ protected int seviyePuani;
+ 
+
+ public abstract int getDayaniklilik();
+ public abstract void setDayaniklilik(int dayaniklilik);
+ 
+ public abstract String getSinif();
+ public abstract void setSinif(String sinif);
+ 
+ public abstract int getVurus();
+ public abstract void setVurus(int vurus);
+ 
+ public SavasAraclari(int seviyePuani) {
+     this.seviyePuani = seviyePuani;
+ }
+
+ 
+ public void KartPuaniGoster() {
+     System.out.print("Dayanıklılık: " + getDayaniklilik()+" ");
+     System.out.print("Seviye Puanı: " + seviyePuani+" ");
+     System.out.print("Sınıf: " + getSinif()+" ");
+     System.out.print("Vuruş Gücü: " + getVurus()+" ");
+ }
+
+ public abstract void DurumGuncelle(int saldiriDegeri);
+}
+
+
+package proje_eskiz;
+
+
+public abstract class HavaSinifi extends SavasAraclari {
+ 
+ 
+ public HavaSinifi(int seviyePuani) {
+     super(seviyePuani);
+ }
+
+ 
+ public abstract String getAltsinif();
+ public abstract void setAltsinif(String altsinif);
+
+ public abstract int getKaraVurusAvantaji();
+ public abstract void setKaraVurusAvantaji(int karaVurusAvantaji);
+ 
+ public abstract int getDenizVurusAvantaji();
+ public abstract void setDenizVurusAvantaji(int denizVurusAvantaji);
+
+ @Override
+ public void KartPuaniGoster() {
+     super.KartPuaniGoster();
+     System.out.print("Alt Sınıf: " + getAltsinif()+" ");
+     System.out.print("Kara Vuruş Avantajı: " + getKaraVurusAvantaji()+" ");
+     System.out.println("Deniz Vuruş Avantajı: " + getDenizVurusAvantaji()+" ");
+ }
+}
+
+package proje_eskiz;
+
+public abstract class KaraSinifi extends SavasAraclari{
+	 
+	 public KaraSinifi(int seviyePuani) {
+	     super(seviyePuani);
+	 }
+
+	 
+	 public abstract String getAltsinif();
+	 public abstract void setAltsinif(String altsinif);
+
+	 public abstract int getHavaVurusAvantaji();
+	 public abstract void setHavaVurusAvantaji(int havaVurusAvantaji);
+	 
+	 public abstract int getDenizVurusAvantaji();
+	 public abstract void setDenizVurusAvantaji(int denizVurusAvantaji);
+
+	 @Override
+	 public void KartPuaniGoster() {
+	     super.KartPuaniGoster();
+	     System.out.print("Alt Sınıf: " + getAltsinif()+" ");
+	     System.out.print("Deniz Vuruş Avantajı: " + getDenizVurusAvantaji()+" ");
+	     System.out.println("Hava Vuruş Avantajı: " + getHavaVurusAvantaji()+" ");
+	 }
+}
+
+package proje_eskiz;
+
+public abstract  class DenizSinifi extends SavasAraclari{
+	
+	 public DenizSinifi(int seviyePuani) {
+	     super(seviyePuani);
+	 }
+
+	 
+	 public abstract String getAltsinif();
+	 public abstract void setAltsinif(String altsinif);
+
+	 public abstract int getHavaVurusAvantaji();
+	 public abstract void setHavaVurusAvantaji(int havaVurusAvantaji);
+	 
+	 public abstract int getKaraVurusAvantaji();
+	 public abstract void setKaraVurusAvantaji(int karaVurusAvantaji);
+
+	 @Override
+	 public void KartPuaniGoster() {
+	     super.KartPuaniGoster();
+	     System.out.print("Alt Sınıf: " + getAltsinif()+" ");
+	     System.out.print("Hava Vuruş Avantajı: " + getHavaVurusAvantaji()+" ");
+	     System.out.println("Kara Vuruş Avantajı: " + getKaraVurusAvantaji()+" ");
+	 }
+}
+
+package proje_eskiz;
+
+
+public class Ucak extends HavaSinifi {
+    
+    private int dayaniklilik;
+    private String sinif;
+    private int vurus;
+    private String altsinif;
+    private int karaVurusAvantaji;
+    private int denizVurusAvantaji;
+
+    public Ucak(int seviyePuani, String sinif, int dayaniklilik, int vurus,String altsinif,int karaVurusAvantaji,int denizVurusAvantaji) {
+        super(seviyePuani);
+        this.sinif = sinif;
+        this.dayaniklilik = dayaniklilik;
+        this.vurus = vurus;
+        this.altsinif=altsinif;
+        this.karaVurusAvantaji=karaVurusAvantaji;
+        this.denizVurusAvantaji=denizVurusAvantaji;
+    }
+
+    @Override
+    public int getDayaniklilik() {
+        return dayaniklilik;
+    }
+
+    @Override
+    public void setDayaniklilik(int dayaniklilik) {
+        this.dayaniklilik = dayaniklilik;
+    }
+
+    @Override
+    public String getSinif() {
+        return sinif;
+    }
+
+    @Override
+    public void setSinif(String sinif) {
+        this.sinif = sinif;
+    }
+
+    @Override
+    public int getVurus() {
+        return vurus;
+    }
+
+    @Override
+    public void setVurus(int vurus) {
+        this.vurus = vurus;
+    }
+
+    @Override
+    public String getAltsinif() {
+        return altsinif;
+    }
+
+    @Override
+    public void setAltsinif(String altsinif) {
+        this.altsinif = altsinif;
+    }
+
+    @Override
+    public int getKaraVurusAvantaji() {
+        return karaVurusAvantaji;
+    }
+
+    @Override
+    public void setKaraVurusAvantaji(int karaVurusAvantaji) {
+        this.karaVurusAvantaji = karaVurusAvantaji;
+    }
+    
+    @Override
+    public int getDenizVurusAvantaji() {
+        return denizVurusAvantaji;
+    }
+
+    @Override
+    public void setDenizVurusAvantaji(int denizVurusAvantaji) {
+        this.denizVurusAvantaji = denizVurusAvantaji;
+    }
+
+    
+    @Override
+    public void KartPuaniGoster() {
+        super.KartPuaniGoster();
+    }
+
+    @Override
+    public void DurumGuncelle(int saldiriDegeri) {
+        setDayaniklilik(getDayaniklilik() - saldiriDegeri);
+    }
+}
+
+package proje_eskiz;
+
+public class Siha extends HavaSinifi{
+    private int dayaniklilik;
+    private String sinif;
+    private int vurus;
+    private String altsinif;
+    private int karaVurusAvantaji;
+    private int denizVurusAvantaji;
+
+    public Siha(int seviyePuani, String sinif, int dayaniklilik, int vurus,String altsinif,int karaVurusAvantaji,int denizVurusAvantaji) {
+        super(seviyePuani);
+        this.sinif = sinif;
+        this.dayaniklilik = dayaniklilik;
+        this.vurus = vurus;
+        this.altsinif=altsinif;
+        this.karaVurusAvantaji=karaVurusAvantaji;
+        this.denizVurusAvantaji = denizVurusAvantaji;
+    }
+
+    @Override
+    public int getDayaniklilik() {
+        return dayaniklilik;
+    }
+
+    @Override
+    public void setDayaniklilik(int dayaniklilik) {
+        this.dayaniklilik = dayaniklilik;
+    }
+
+    @Override
+    public String getSinif() {
+        return sinif;
+    }
+
+    @Override
+    public void setSinif(String sinif) {
+        this.sinif = sinif;
+    }
+
+    @Override
+    public int getVurus() {
+        return vurus;
+    }
+
+    @Override
+    public void setVurus(int vurus) {
+        this.vurus = vurus;
+    }
+
+    @Override
+    public String getAltsinif() {
+        return altsinif;
+    }
+
+    @Override
+    public void setAltsinif(String altsinif) {
+        this.altsinif = altsinif;
+    }
+
+    @Override
+    public int getKaraVurusAvantaji() {
+        return karaVurusAvantaji;
+    }
+
+    @Override
+    public void setKaraVurusAvantaji(int karaVurusAvantaji) {
+        this.karaVurusAvantaji = karaVurusAvantaji;
+    }
+    
+    @Override
+    public int getDenizVurusAvantaji() {
+        return denizVurusAvantaji;
+    }
+
+    @Override
+    public void setDenizVurusAvantaji(int denizVurusAvantaji) {
+        this.denizVurusAvantaji = denizVurusAvantaji;
+    }
+
+    
+    @Override
+    public void KartPuaniGoster() {
+        super.KartPuaniGoster();
+    }
+
+    @Override
+    public void DurumGuncelle(int saldiriDegeri) {
+        setDayaniklilik(getDayaniklilik() - saldiriDegeri);
+
+    }
+}
+
+package proje_eskiz;
+
+public class Sida extends DenizSinifi{
+	private int dayaniklilik;
+    private String sinif;
+    private int vurus;
+    private String altsinif;
+    private int havaVurusAvantaji;
+    private int karaVurusAvantaji;
+
+    public Sida(int seviyePuani, String sinif, int dayaniklilik, int vurus,String altsinif,int karaVurusAvantaji,int havaVurusAvantaji) {
+        super(seviyePuani);
+        this.sinif = sinif;
+        this.dayaniklilik = dayaniklilik;
+        this.vurus = vurus;
+        this.altsinif=altsinif;
+        this.havaVurusAvantaji=havaVurusAvantaji;
+        this.karaVurusAvantaji=karaVurusAvantaji;
+    }
+
+    @Override
+    public int getDayaniklilik() {
+        return dayaniklilik;
+    }
+
+    @Override
+    public void setDayaniklilik(int dayaniklilik) {
+        this.dayaniklilik = dayaniklilik;
+    }
+
+    @Override
+    public String getSinif() {
+        return sinif;
+    }
+
+    @Override
+    public void setSinif(String sinif) {
+        this.sinif = sinif;
+    }
+
+    @Override
+    public int getVurus() {
+        return vurus;
+    }
+
+    @Override
+    public void setVurus(int vurus) {
+        this.vurus = vurus;
+    }
+
+    @Override
+    public String getAltsinif() {
+        return altsinif;
+    }
+
+    @Override
+    public void setAltsinif(String altsinif) {
+        this.altsinif = altsinif;
+    }
+
+    @Override
+    public int getHavaVurusAvantaji() {
+        return havaVurusAvantaji;
+    }
+
+    @Override
+    public void setHavaVurusAvantaji(int havaVurusAvantaji) {
+        this.havaVurusAvantaji = havaVurusAvantaji;
+    }
+    
+    @Override
+    public int getKaraVurusAvantaji() {
+        return karaVurusAvantaji;
+    }
+
+    @Override
+    public void setKaraVurusAvantaji(int karaVurusAvantaji) {
+        this.karaVurusAvantaji = karaVurusAvantaji;
+    }
+
+    
+    @Override
+    public void KartPuaniGoster() {
+        super.KartPuaniGoster();
+    }
+
+    @Override
+    public void DurumGuncelle(int saldiriDegeri) {
+        setDayaniklilik(getDayaniklilik() - saldiriDegeri);
+
+}
+}
+
+package proje_eskiz;
+
+public class Obus extends KaraSinifi{
+	private int dayaniklilik;
+    private String sinif;
+    private int vurus;
+    private String altsinif;
+    private int havaVurusAvantaji;
+    private int denizVurusAvantaji;
+
+    public Obus(int seviyePuani, String sinif, int dayaniklilik, int vurus,String altsinif,int denizVurusAvantaji,int havaVurusAvantaji) {
+        super(seviyePuani);
+        this.sinif = sinif;
+        this.dayaniklilik = dayaniklilik;
+        this.vurus = vurus;
+        this.altsinif=altsinif;
+        this.havaVurusAvantaji=havaVurusAvantaji;
+        this.denizVurusAvantaji=denizVurusAvantaji;
+    }
+
+    @Override
+    public int getDayaniklilik() {
+        return dayaniklilik;
+    }
+
+    @Override
+    public void setDayaniklilik(int dayaniklilik) {
+        this.dayaniklilik = dayaniklilik;
+    }
+
+    @Override
+    public String getSinif() {
+        return sinif;
+    }
+
+    @Override
+    public void setSinif(String sinif) {
+        this.sinif = sinif;
+    }
+
+    @Override
+    public int getVurus() {
+        return vurus;
+    }
+
+    @Override
+    public void setVurus(int vurus) {
+        this.vurus = vurus;
+    }
+
+    @Override
+    public String getAltsinif() {
+        return altsinif;
+    }
+
+    @Override
+    public void setAltsinif(String altsinif) {
+        this.altsinif = altsinif;
+    }
+
+    @Override
+    public int getHavaVurusAvantaji() {
+        return havaVurusAvantaji;
+    }
+
+    @Override
+    public void setHavaVurusAvantaji(int havaVurusAvantaji) {
+        this.havaVurusAvantaji = havaVurusAvantaji;
+    }
+    
+    @Override
+    public int getDenizVurusAvantaji() {
+        return denizVurusAvantaji;
+    }
+
+    @Override
+    public void setDenizVurusAvantaji(int denizVurusAvantaji) {
+        this.denizVurusAvantaji = denizVurusAvantaji;
+    }
+
+    
+    @Override
+    public void KartPuaniGoster() {
+        super.KartPuaniGoster();
+    }
+
+    @Override
+    public void DurumGuncelle(int saldiriDegeri) {
+        setDayaniklilik(getDayaniklilik() - saldiriDegeri);
+}
+
+}
+
+
+package proje_eskiz;
+
+public class KFS extends KaraSinifi{
+	private int dayaniklilik;
+    private String sinif;
+    private int vurus;
+    private String altsinif;
+    private int havaVurusAvantaji;
+    private int denizVurusAvantaji;
+
+    public KFS(int seviyePuani, String sinif, int dayaniklilik, int vurus,String altsinif,int denizVurusAvantaji,int havaVurusAvantaji) {
+        super(seviyePuani);
+        this.sinif = sinif;
+        this.dayaniklilik = dayaniklilik;
+        this.vurus = vurus;
+        this.altsinif=altsinif;
+        this.havaVurusAvantaji=havaVurusAvantaji;
+        this.denizVurusAvantaji=denizVurusAvantaji;
+    }
+
+    @Override
+    public int getDayaniklilik() {
+        return dayaniklilik;
+    }
+
+    @Override
+    public void setDayaniklilik(int dayaniklilik) {
+        this.dayaniklilik = dayaniklilik;
+    }
+
+    @Override
+    public String getSinif() {
+        return sinif;
+    }
+
+    @Override
+    public void setSinif(String sinif) {
+        this.sinif = sinif;
+    }
+
+    @Override
+    public int getVurus() {
+        return vurus;
+    }
+
+    @Override
+    public void setVurus(int vurus) {
+        this.vurus = vurus;
+    }
+
+    @Override
+    public String getAltsinif() {
+        return altsinif;
+    }
+
+    @Override
+    public void setAltsinif(String altsinif) {
+        this.altsinif = altsinif;
+    }
+
+    @Override
+    public int getHavaVurusAvantaji() {
+        return havaVurusAvantaji;
+    }
+
+    @Override
+    public void setHavaVurusAvantaji(int havaVurusAvantaji) {
+        this.havaVurusAvantaji = havaVurusAvantaji;
+    }
+    
+    @Override
+    public int getDenizVurusAvantaji() {
+        return denizVurusAvantaji;
+    }
+
+    @Override
+    public void setDenizVurusAvantaji(int denizVurusAvantaji) {
+        this.denizVurusAvantaji = denizVurusAvantaji;
+    }
+
+    
+    @Override
+    public void KartPuaniGoster() {
+        super.KartPuaniGoster();
+    }
+
+    @Override
+    public void DurumGuncelle(int saldiriDegeri) {
+        setDayaniklilik(getDayaniklilik() - saldiriDegeri);
+}
+}
+
+package proje_eskiz;
+
+public class Firkateyn extends DenizSinifi{
+	
+	private int dayaniklilik;
+    private String sinif;
+    private int vurus;
+    private String altsinif;
+    private int havaVurusAvantaji;
+    private int karaVurusAvantaji;
+
+    public Firkateyn(int seviyePuani, String sinif, int dayaniklilik, int vurus,String altsinif,int karaVurusAvantaji,int havaVurusAvantaji) {
+        super(seviyePuani);
+        this.sinif = sinif;
+        this.dayaniklilik = dayaniklilik;
+        this.vurus = vurus;
+        this.altsinif=altsinif;
+        this.havaVurusAvantaji=havaVurusAvantaji;
+        this.karaVurusAvantaji=karaVurusAvantaji;
+    }
+
+    @Override
+    public int getDayaniklilik() {
+        return dayaniklilik;
+    }
+
+    @Override
+    public void setDayaniklilik(int dayaniklilik) {
+        this.dayaniklilik = dayaniklilik;
+    }
+
+    @Override
+    public String getSinif() {
+        return sinif;
+    }
+
+    @Override
+    public void setSinif(String sinif) {
+        this.sinif = sinif;
+    }
+
+    @Override
+    public int getVurus() {
+        return vurus;
+    }
+
+    @Override
+    public void setVurus(int vurus) {
+        this.vurus = vurus;
+    }
+
+    @Override
+    public String getAltsinif() {
+        return altsinif;
+    }
+
+    @Override
+    public void setAltsinif(String altsinif) {
+        this.altsinif = altsinif;
+    }
+
+    @Override
+    public int getHavaVurusAvantaji() {
+        return havaVurusAvantaji;
+    }
+
+    @Override
+    public void setHavaVurusAvantaji(int havaVurusAvantaji) {
+        this.havaVurusAvantaji = havaVurusAvantaji;
+    }
+    
+    @Override
+    public int getKaraVurusAvantaji() {
+        return karaVurusAvantaji;
+    }
+
+    @Override
+    public void setKaraVurusAvantaji(int karaVurusAvantaji) {
+        this.karaVurusAvantaji = karaVurusAvantaji;
+    }
+
+    
+    @Override
+    public void KartPuaniGoster() {
+        super.KartPuaniGoster();
+    }
+
+    @Override
+    public void DurumGuncelle(int saldiriDegeri) {
+        setDayaniklilik(getDayaniklilik() - saldiriDegeri);
+ 
+}
+
+}
+
+package proje_eskiz;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class OyunEkrani extends JFrame {
+
+    public OyunEkrani() {
+        
+        super("Kart Savaşları Oyunu");
+
+
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(1500, 800);
+
+
+        this.setLayout(new BorderLayout());
+
+
+        JLabel baslik = new JLabel("Kart Savaşları!", SwingConstants.CENTER);
+        baslik.setFont(new Font("Arial", Font.BOLD, 24));
+        baslik.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        this.add(baslik, BorderLayout.NORTH);
+
+
+        JPanel merkezPanel = new JPanel(new GridLayout(1, 1));
+        this.add(merkezPanel, BorderLayout.CENTER);
+
+
+        JLabel altBilgi = new JLabel("Hazırlık için kartlarınızı seçiniz!", SwingConstants.CENTER);
+        altBilgi.setFont(new Font("Arial", Font.ITALIC, 14));
+        this.add(altBilgi, BorderLayout.SOUTH);
+    }
+}
+
+package proje_eskiz;
+
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+
+public class KartPaneli extends JPanel { 
+    private Oyuncu user, bilgisayar;
+    private JLabel bilgiLabel;
+    private int secimSayisi = 0;
+    private final int MAX_SECIM = 6;
+    private ArrayList<String> kullaniciSecimleri = new ArrayList<>();
+    private ArrayList<String> bilgisayarSecimleri = new ArrayList<>();
+    private ArrayList<String> secilenKartlar = new ArrayList<>(); 
+    private JPanel buttonPanel, kartListePanel, sonucPanel;
+    private Map<String, Integer> kartSayisiMap = new HashMap<>();  
+    private ArrayList<String> bilgisayarGizliKartlar = new ArrayList<>(); 
+
+    private final Map<String, Integer> kartDayaniklilik = new HashMap<>() {{
+        put("ucak", 20);
+        put("obus", 20);
+        put("firkateyn", 25);
+    }};
+
+    private final Map<String, Integer> kartVurusGucu = new HashMap<>() {{
+        put("ucak", 10);
+        put("obus", 10);
+        put("firkateyn", 10);
+    }};
+
+   
+    private final Map<String, Map<String, Integer>> ozelAvantajlar = new HashMap<>() {{
+        put("ucak", Map.of("obus", 10));
+        put("obus", Map.of("firkateyn", 5));
+        put("firkateyn", Map.of("ucak", 10));
+    }};
+    
+    private String kartSavas(String kullaniciKart, String bilgisayarKart) {
+        String kullaniciTip = kullaniciKart.replaceAll("\\d", ""); 
+        String bilgisayarTip = bilgisayarKart.replaceAll("\\d", ""); 
+
+        int kullaniciDayaniklilik = kartDayaniklilik.getOrDefault(kullaniciTip, 0);
+        int bilgisayarDayaniklilik = kartDayaniklilik.getOrDefault(bilgisayarTip, 0);
+
+        int kullaniciVurusGucu = kartVurusGucu.getOrDefault(kullaniciTip, 0);
+        int bilgisayarVurusGucu = kartVurusGucu.getOrDefault(bilgisayarTip, 0);
+
+      
+        kullaniciVurusGucu += ozelAvantajlar.getOrDefault(kullaniciTip, Map.of()).getOrDefault(bilgisayarTip, 0);
+        bilgisayarVurusGucu += ozelAvantajlar.getOrDefault(bilgisayarTip, Map.of()).getOrDefault(kullaniciTip, 0);
+
+      
+        while (kullaniciDayaniklilik > 0 && bilgisayarDayaniklilik > 0) {
+            bilgisayarDayaniklilik -= kullaniciVurusGucu;
+            if (bilgisayarDayaniklilik <= 0) break;
+            kullaniciDayaniklilik -= bilgisayarVurusGucu;
+        }
+
+       
+        if (kullaniciDayaniklilik > 0 && bilgisayarDayaniklilik<=0) {
+            return "Kullanıcı kazandı!";
+        } else if (bilgisayarDayaniklilik > 0 && kullaniciDayaniklilik<=0) {
+            return "Bilgisayar kazandı!";
+        } else if(kullaniciDayaniklilik>bilgisayarDayaniklilik) {
+            return "Kullanıcı kazandı!";
+        }
+        else if (bilgisayarDayaniklilik>kullaniciDayaniklilik){
+        	return "Bilgisayar kazandı!";
+        }
+        else {
+        	return "berabere";
+        }
+        
+    }
+
+ 
+
+    public KartPaneli(Oyuncu user, Oyuncu bilgisayar) {
+        this.user = user;
+        this.bilgisayar = bilgisayar;
+        this.setLayout(new BorderLayout());
+
+        
+        bilgiLabel = new JLabel("6 kart seçiniz:");
+        this.add(bilgiLabel, BorderLayout.NORTH);
+
+      
+        buttonPanel = new JPanel(new GridLayout(1, 3));
+        String[] kartTurleri = {"ucak", "obus", "firkateyn"};
+
+        for (String kart : kartTurleri) {
+            JButton kartButton = new JButton(kart);
+            kartButton.addActionListener(e -> kullaniciKartSecimi(kart));
+            buttonPanel.add(kartButton);
+        }
+        this.add(buttonPanel, BorderLayout.CENTER);
+
+      
+        kartListePanel = new JPanel(new GridLayout(1, 6));
+        kartListePanel.setBorder(BorderFactory.createTitledBorder("Kullanıcı Kartları"));
+        kartListePanel.setVisible(false);
+        this.add(kartListePanel, BorderLayout.SOUTH);
+
+     
+        sonucPanel = new JPanel(new GridLayout(2, 3));
+        sonucPanel.setBorder(BorderFactory.createTitledBorder("Seçilen Kartlar"));
+        sonucPanel.setVisible(false);
+        this.add(sonucPanel, BorderLayout.EAST);
+    }
+
+    private void kullaniciKartSecimi(String kart) {
+        if (secimSayisi < MAX_SECIM) {
+  
+            kullaniciSecimleri.add(kart);
+
+            kartSayisiMap.put(kart, kartSayisiMap.getOrDefault(kart, 0) + 1);
+            int kartKodu;
+
+            if (kart.equals("ucak")) {
+                kartKodu = 1;
+            } else if (kart.equals("obus")) {
+                kartKodu = 2;
+            } else {
+                kartKodu = 3;
+            }
+
+            user.kartSec(kartKodu, "user");
+
+          
+            String kartSayisiText = "";
+            if (kartSayisiMap.get(kart) >= 1) {
+                kartSayisiText = kartSayisiMap.get(kart).toString();
+            }
+
+            bilgiLabel.setText((secimSayisi + 1) + ". seçim: " + kart + kartSayisiText);
+
+            secimSayisi++;
+
+            if (secimSayisi == MAX_SECIM) {
+            
+                bilgisayarKartSecimi();
+                buttonPanel.setVisible(false);
+
+              
+                bilgiLabel.setText("6 kart seçildi. Lütfen bu kartlardan 3 tanesini seçiniz.");
+                gosterKullaniciKartlari();
+            }
+        }
+    }
+
+    private void bilgisayarKartSecimi() {
+        Random rand = new Random();
+        String[] kartTurleri = {"ucak", "obus", "firkateyn"};
+        bilgisayarSecimleri.clear(); 
+
+        while (bilgisayarSecimleri.size() < MAX_SECIM) {
+            String kart = kartTurleri[rand.nextInt(kartTurleri.length)]; 
+            bilgisayarSecimleri.add(kart);
+        }
+
+        ArrayList<String> numaralandirilmisKartlar = new ArrayList<>();
+        Map<String, Integer> kartNumaralari = new HashMap<>();
+        for (String kart : bilgisayarSecimleri) {
+            kartNumaralari.put(kart, kartNumaralari.getOrDefault(kart, 0) + 1);
+            String kartAdi = kart + kartNumaralari.get(kart); 
+            numaralandirilmisKartlar.add(kartAdi);
+        }
+
+        bilgisayarGizliKartlar.clear();
+        while (bilgisayarGizliKartlar.size() < 3) {
+            String kart = numaralandirilmisKartlar.get(rand.nextInt(numaralandirilmisKartlar.size()));
+            if (!bilgisayarGizliKartlar.contains(kart)) {
+                bilgisayarGizliKartlar.add(kart);
+            }
+        }
+    }
+
+    private void gosterKullaniciKartlari() {
+        kartListePanel.removeAll();
+        kartListePanel.setVisible(true);
+
+        Map<String, Integer> kartNumaralari = new HashMap<>();
+        for (String kart : kullaniciSecimleri) {
+            kartNumaralari.put(kart, kartNumaralari.getOrDefault(kart, 0) + 1);
+            String kartAdi = kart + kartNumaralari.get(kart); 
+
+            JButton kartButton = new JButton(kartAdi);
+            kartButton.addActionListener(e -> ucKartSecimi(kartAdi));
+
+            kartButton.setPreferredSize(new Dimension(120, 660)); 
+
+            kartListePanel.add(kartButton);
+        }
+
+        this.revalidate();
+        this.repaint();
+
+    }
+
+    private void ucKartSecimi(String kart) {
+        if (secilenKartlar.size() < 3) {
+            secilenKartlar.add(kart);
+            bilgiLabel.setText(kart + " seçildi.");
+
+            if (secilenKartlar.size() == 3) {
+                bilgiLabel.setText("3 kart seçtiniz! Sonuçlar gösteriliyor.");
+                gosterSecilenKartlar();
+                kartlariSavastir();
+            }
+        }
+    }
+
+    private void gosterSecilenKartlar() {
+        kartListePanel.setVisible(false);
+        sonucPanel.removeAll();
+        sonucPanel.setVisible(true);
+ 
+        for (String kart : bilgisayarGizliKartlar) {
+            JLabel kartLabel = new JLabel("Bilgisayar: " + kart);
+            kartLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            kartLabel.setBorder(BorderFactory.createLineBorder(Color.RED));
+
+          
+            kartLabel.setPreferredSize(new Dimension(480, 300));  
+            sonucPanel.add(kartLabel);
+        }
+
+        for (String kart : secilenKartlar) {
+            JLabel kartLabel = new JLabel("User: " + kart);
+            kartLabel.setHorizontalAlignment(SwingConstants.CENTER);
+            kartLabel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+
+            kartLabel.setPreferredSize(new Dimension(480, 300)); 
+            sonucPanel.add(kartLabel);
+        }
+        
+        
+
+
+
+        this.revalidate();
+        this.repaint();
+    }
+    private void kartlariSavastir() {
+        StringBuilder sonuc = new StringBuilder("<html>Savaş Sonuçları:<br>");
+        int kullaniciKazanmaSayisi = 0;
+        int bilgisayarKazanmaSayisi = 0;
+
+        for (int i = 0; i < 3; i++) {
+            String kullaniciKart = secilenKartlar.get(i);
+            String bilgisayarKart = bilgisayarGizliKartlar.get(i);
+
+            String savasSonucu = kartSavas(kullaniciKart, bilgisayarKart);
+            sonuc.append(kullaniciKart).append(" vs ").append(bilgisayarKart)
+                  .append(": ").append(savasSonucu).append("<br>");
+
+            if (savasSonucu.contains("Kullanıcı")) {
+                kullaniciKazanmaSayisi++;
+            } else if (savasSonucu.contains("Bilgisayar")) {
+                bilgisayarKazanmaSayisi++;
+            }
+        }
+
+        sonuc.append("<br>Genel Sonuç: ");
+        if (kullaniciKazanmaSayisi > bilgisayarKazanmaSayisi) {
+            sonuc.append("Kullanıcı Kazandı!");
+        } else if (bilgisayarKazanmaSayisi > kullaniciKazanmaSayisi) {
+            sonuc.append("Bilgisayar Kazandı!");
+        } else {
+            sonuc.append("Berabere!");
+        }
+        sonuc.append("</html>");
+
+        bilgiLabel.setText(sonuc.toString());
+        JOptionPane.showMessageDialog(this, sonuc.toString(), "Savaş Sonucu:", JOptionPane.INFORMATION_MESSAGE);
+    }
+}
+
+
+package proje_eskiz;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.*;
+
+
+public class Oyuncu {
+	String  OyuncuID;
+	String  OyuncuAdi;
+	int skor;
+	int toplamDayaniklilik=0;
+	int u=0,o=0,f=0,sh=0,sd=0,KFS=0;
+	ArrayList<Ucak> ucakList = new ArrayList<>();
+	ArrayList<Obus> obusList = new ArrayList<>();
+	ArrayList<Firkateyn> firkateynList = new ArrayList<>();
+	ArrayList<Siha> sihaList = new ArrayList<>();
+	ArrayList<Sida> sidaList = new ArrayList<>();
+	ArrayList<KFS> KFSList = new ArrayList<>();
+	
+	ArrayList<String> Kartlar = new ArrayList<>();
+	ArrayList<String> kullanilanKartlar = new ArrayList<>();
+	ArrayList<String> kullanilmayanKartlar = new ArrayList<>();
+	
+	// seviye , sınıf, dayaniklilik , vurus  ,alt sinif , 
+	/*
+	Ucak ucak1 = new Ucak(0,"hava",20,10,"ucak",10,0);
+	Siha siha1 = new Siha(0,"hava",15,10,"siha",10,10);
+	Obus obus1 = new Obus(0,"kara",20,10,"obus",5,0) ;
+	KFS KFS1 = new KFS(0,"kara",10,10,"obus",10,20) ;
+	Sida sida1  = new Sida(0,"deniz",15,10,"sida",10,10);
+	Firkateyn firkateyn1  = new Firkateyn(0,"deniz",25,10,"firkateyn",5,0);
+	*/
+	public Oyuncu(String OyuncuID,String OyuncuAdi,int skor)
+	{
+		this.OyuncuAdi=OyuncuAdi;
+		this.OyuncuID=OyuncuID;
+		this.skor=skor;
+	}
+	
+	public Oyuncu()
+	{
+		this.OyuncuAdi="bilgisayar";
+		this.OyuncuID="2";
+		this.skor=0;
+	}
+	
+	public int SkorGoster(int skor)
+	{
+		return skor;
+	}
+	
+	public void kartSec(int secim,String kelime)
+	{
+		
+		//ucakList.add(new Ucak(0,"hava",20,10,"ucak",10,0));
+		if(kelime.equals("user"))
+		{
+		if(secim==1)
+		{
+			u++;
+			ucakList.add(new Ucak(0,"hava",20,10,"ucak",10,0));
+			Kartlar.add("ucak"+u);
+		}
+		else if(secim==2)
+		{
+			o++;
+			obusList.add(new Obus(0,"kara",20,10,"obus",5,0));
+			Kartlar.add("obus"+o);
+		}
+		else if(secim==3)
+		{
+			f++;
+			firkateynList.add(new Firkateyn(0,"deniz",25,10,"firkateyn",5,0));
+			Kartlar.add("firkateyn"+f);
+		}
+		}
+		
+		else if(kelime.equals("bilgisayar"))
+		{
+			for(int i=1;i<7;i++)
+			{
+				Random random = new Random();
+				int a = random.nextInt(3)+1;
+				if(a==1)
+				{
+					u++;
+					ucakList.add(new Ucak(0,"hava",20,10,"ucak",10,0));
+					Kartlar.add("ucak"+u);
+				}
+				else if(a==2)
+				{
+					o++;
+					obusList.add(new Obus(0,"kara",20,10,"obus",5,0));
+					Kartlar.add("obus"+o);
+				}
+				else if(a==3)
+				{
+					f++;
+					firkateynList.add(new Firkateyn(0,"deniz",25,10,"firkateyn",5,0));
+					Kartlar.add("firkateyn"+f);
+				}
+			}
+		}
+		else if(kelime.equals("rastgele"))
+		{
+			if(skor<20)
+			{
+				Random random = new Random();
+				int a = random.nextInt(3)+1;
+				if(a==1)
+				{
+					u++;
+					ucakList.add(new Ucak(0,"hava",20,10,"ucak",10,0));
+					Kartlar.add("ucak"+u);
+				}
+				else if(a==2)
+				{
+					o++;
+					obusList.add(new Obus(0,"kara",20,10,"obus",5,0));
+					Kartlar.add("obus"+o);
+				}
+				else if(a==3)
+				{
+					f++;
+					firkateynList.add(new Firkateyn(0,"deniz",25,10,"firkateyn",5,0));
+					Kartlar.add("firkateyn"+f);
+				}
+			}
+			else if(skor>=20)
+			{
+				Random random = new Random();
+				int a = random.nextInt(6)+1;
+				if(a==1)
+				{
+					u++;
+					ucakList.add(new Ucak(0,"hava",20,10,"ucak",10,0));
+					Kartlar.add("ucak"+u);
+				}
+				else if(a==2)
+				{
+					o++;
+					obusList.add(new Obus(0,"kara",20,10,"obus",5,0));
+					Kartlar.add("obus"+o);
+				}
+				else if(a==3)
+				{
+					f++;
+					firkateynList.add(new Firkateyn(0,"deniz",25,10,"firkateyn",5,0));
+					Kartlar.add("firkateyn"+f);
+				}
+				else if(a==4)
+				{
+					sh++;
+					sihaList.add(new Siha(0,"hava",15,10,"siha",10,10));
+					Kartlar.add("siha"+sh);
+				}
+				else if(a==5)
+				{
+					KFS++;
+					KFSList.add(new KFS(0,"kara",10,10,"obus",10,20));
+					Kartlar.add("KFS"+KFS);
+				}
+				else if(a==6)
+				{
+					sd++;
+					sidaList.add(new Sida(0,"deniz",15,10,"sida",10,10));
+					Kartlar.add("sida"+sd);
+				}
+			}
+		}
+	}
+
+	
+	public void kartListesi(String OyuncuAdi)
+	{
+
+		
+		if(OyuncuAdi.equals("bilgisayar")) {
+			System.out.print("Bilgisayar : ");
+			
+		}
+		
+		else {
+			System.out.print("user : ");
+			
+			}
+		for(int i=0;i<Kartlar.size();i++)
+		{
+			String Kart = Kartlar.get(i);
+			System.out.print(Kart+" ");
+			
+		}
+		System.out.println();
+
+	}
+	
+}
+
+package proje_eskiz;
+
+import java.util.*;
+
+import java.awt.BorderLayout;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+import javax.swing.JFrame;
+
+
+public class Oyun {
+	
+	public static int SaldiriHesapla(String saldiran, String savunan)
+	{
+		if(saldiran.equals("ucak"))
+		{
+			if(savunan.equals("obus")||savunan.equals("KFS")) return 20;
+			else return 10;
+		}
+		else if(saldiran.equals("obus"))
+		{
+			if(savunan.equals("firkateyn")||savunan.equals("sida")) return 15;
+			else return 10;
+		}
+		else if(saldiran.equals("firkateyn"))
+		{
+			if(savunan.equals("ucak")||savunan.equals("siha")) return 15;
+			else return 10;
+		}
+		else if(saldiran.equals("siha"))
+		{
+			if(savunan.equals("obus")||savunan.equals("KFS")) return 20;
+			else if(savunan.equals("firkateyn")||savunan.equals("sida")) return 20;
+			else return 10;
+		}
+		else if(saldiran.equals("KFS"))
+		{
+			if(savunan.equals("firkateyn")||savunan.equals("sida")) return 20;
+			else if(savunan.equals("ucak")||savunan.equals("siha")) return 30;
+			else return 10;
+		}
+		else if(saldiran.equals("sida"))
+		{
+			if(savunan.equals("ucak")||savunan.equals("siha")) return 20;
+			else if(savunan.equals("obus")||savunan.equals("KFS")) return 20;
+			else return 10;
+		}
+		
+		return 0;
+	}
+	
+	public static void PuanGuncelle(Oyuncu oyuncu1,String kelime,int puan,int i)
+	{
+		if(puan<=10) oyuncu1.skor+=10;
+		else oyuncu1.skor+=puan;
+		
+		if(kelime.equals("ucak"))
+		{
+			if(puan<=10) {oyuncu1.ucakList.get(i).seviyePuani+=10; }
+			else {oyuncu1.ucakList.get(i).seviyePuani+=puan; }
+			
+		}
+		else if(kelime.equals("obus"))
+		{
+			if(puan<=10) {oyuncu1.obusList.get(i).seviyePuani+=10; }
+			else {oyuncu1.obusList.get(i).seviyePuani+=puan;}
+		}
+		else if(kelime.equals("firkateyn"))
+		{
+			if(puan<=10) oyuncu1.firkateynList.get(i).seviyePuani+=10;
+			else oyuncu1.firkateynList.get(i).seviyePuani+=puan;
+		}
+		else if(kelime.equals("siha"))
+		{
+			if(puan<=10) oyuncu1.sihaList.get(i).seviyePuani+=10;
+			else oyuncu1.sihaList.get(i).seviyePuani+=puan;
+		}
+		else if(kelime.equals("KFS"))
+		{
+			if(puan<=10) oyuncu1.KFSList.get(i).seviyePuani+=10;
+			else oyuncu1.KFSList.get(i).seviyePuani+=puan;
+		}
+		else if(kelime.equals("sida"))
+		{
+			if(puan<=10) oyuncu1.sidaList.get(i).seviyePuani+=10;
+			else oyuncu1.sidaList.get(i).seviyePuani+=puan;
+		}
+	}
+	
+	public static void ListedenCikart(Oyuncu oyuncu,String kelime,int i)
+	{
+		
+		if(kelime.equals("ucak"))
+		{
+			if(oyuncu.ucakList.get(i).getDayaniklilik()<=0) {
+				//oyuncu.ucakList.remove(i);
+				oyuncu.Kartlar.remove(indisBul(oyuncu,kelime,i+1));
+			}
+		}
+		else if(kelime.equals("obus"))
+		{
+			if(oyuncu.obusList.get(i).getDayaniklilik()<=0) {
+				//oyuncu.obusList.remove(i);
+				oyuncu.Kartlar.remove(indisBul(oyuncu,kelime,i+1));
+			}
+		}
+		else if(kelime.equals("firkateyn"))
+		{
+			if(oyuncu.firkateynList.get(i).getDayaniklilik()<=0) {
+				//oyuncu.firkateynList.remove(i);
+				oyuncu.Kartlar.remove(indisBul(oyuncu,kelime,i+1));
+			}
+		}
+		else if(kelime.equals("siha"))
+		{
+			if(oyuncu.sihaList.get(i).getDayaniklilik()<=0) {
+				//oyuncu.sihaList.remove(i);
+				oyuncu.Kartlar.remove(indisBul(oyuncu,kelime,i+1));
+			}
+		}
+		else if(kelime.equals("KFS"))
+		{
+			if(oyuncu.KFSList.get(i).getDayaniklilik()<=0) {
+				//oyuncu.KFSList.remove(i);
+				oyuncu.Kartlar.remove(indisBul(oyuncu,kelime,i+1));
+			}
+		}
+		else if(kelime.equals("sida"))
+		{
+			if(oyuncu.sidaList.get(i).getDayaniklilik()<=0) {
+				//oyuncu.sidaList.remove(i);
+				oyuncu.Kartlar.remove(indisBul(oyuncu,kelime,i+1));
+			}
+		}
+		
+	}
+	
+	public static int indisBul(Oyuncu oyuncu,String kelime,int i)
+	{
+		int j=0;
+		String aranan = kelime+i;
+		while(!oyuncu.Kartlar.get(j).equals(aranan))
+		{
+			j++;
+		}
+		return j;
+	}
+	
+	
+	public static void KartPuaniGoster2(Oyuncu oyuncu1,String kelime,int i)
+	{
+		if(kelime.equals("ucak"))  { 
+			oyuncu1.ucakList.get(i).KartPuaniGoster(); 
+			yazdirDosyaya2(" "+"dayaniklilik : "+oyuncu1.ucakList.get(i).getDayaniklilik());
+			yazdirDosyaya2(" "+"seviye puani : "+oyuncu1.ucakList.get(i).seviyePuani);
+		}
+		else if(kelime.equals("obus")) {
+			oyuncu1.obusList.get(i).KartPuaniGoster();
+			yazdirDosyaya2(" "+"dayaniklilik : "+oyuncu1.obusList.get(i).getDayaniklilik());
+			yazdirDosyaya2(" "+"seviye puani : "+oyuncu1.obusList.get(i).seviyePuani);
+		}
+		else if(kelime.equals("firkateyn")) {
+			oyuncu1.firkateynList.get(i).KartPuaniGoster();
+			yazdirDosyaya2(" "+"dayaniklilik : "+oyuncu1.firkateynList.get(i).getDayaniklilik());
+			yazdirDosyaya2(" "+"seviye puani : "+oyuncu1.firkateynList.get(i).seviyePuani);
+		}
+		else if(kelime.equals("siha")) {
+			oyuncu1.sihaList.get(i).KartPuaniGoster();
+			yazdirDosyaya2(" "+"dayaniklilik : "+oyuncu1.sihaList.get(i).getDayaniklilik());
+			yazdirDosyaya2(" "+"seviye puani : "+oyuncu1.sihaList.get(i).seviyePuani);
+		}
+		else if(kelime.equals("KFS")) {
+			oyuncu1.KFSList.get(i).KartPuaniGoster();
+			yazdirDosyaya2(" "+"dayaniklilik : "+oyuncu1.KFSList.get(i).getDayaniklilik());
+			yazdirDosyaya2(" "+"seviye puani : "+oyuncu1.KFSList.get(i).seviyePuani);
+		}
+		else if(kelime.equals("sida")) {
+			oyuncu1.sidaList.get(i).KartPuaniGoster();
+			yazdirDosyaya2(" "+"dayaniklilik : "+oyuncu1.sidaList.get(i).getDayaniklilik());
+			yazdirDosyaya2(" "+"seviye puani : "+oyuncu1.sidaList.get(i).seviyePuani);
+		}
+	}
+	
+	public static int DayaniklilikDondur(String kelime,Oyuncu oyuncu)
+	{
+		String tur;
+		int a;
+		tur = kelime.replaceAll("\\d", "");
+		a = Integer.parseInt(kelime.replaceAll("\\D", ""));
+		if(tur.equals("ucak")) return oyuncu.ucakList.get(a-1).getDayaniklilik();
+		else if(tur.equals("KFS")) return oyuncu.KFSList.get(a-1).getDayaniklilik();
+		else if(tur.equals("obus")) return oyuncu.obusList.get(a-1).getDayaniklilik();
+		else if(tur.equals("firkateyn")) return oyuncu.firkateynList.get(a-1).getDayaniklilik();
+		else if(tur.equals("siha")) return oyuncu.sihaList.get(a-1).getDayaniklilik();
+		else if(tur.equals("sida")) return oyuncu.sidaList.get(a-1).getDayaniklilik();
+		return 0;
+	}
+	
+	 private static BufferedWriter writer;
+	 public static void yazdirDosyaya(String icerik) {
+	        try {
+	            writer.write(icerik);
+	            writer.newLine(); // Satır sonu
+	        } catch (IOException e) {
+	            System.out.println("Dosyaya yazarken bir hata oluştu: " + e.getMessage());
+	        }
+	    }
+	 public static void yazdirDosyaya2(String icerik) {
+	        try {
+	            writer.write(icerik);
+	        } catch (IOException e) {
+	            System.out.println("Dosyaya yazarken bir hata oluştu: " + e.getMessage());
+	        }
+	    }
+	
+	public static void main(String[] args)
+	{
+		String dosyaAdi = "oyun_sonuclari.txt";
+		/*
+		javax.swing.SwingUtilities.invokeLater(() -> {
+	        // Ana oyun ekranını başlat
+	        OyunEkrani oyunEkrani = new OyunEkrani();
+
+	        // Oyuncu nesneleri oluştur
+	        Oyuncu user = new Oyuncu("1234", "Hasan", 45);
+	        Oyuncu bilgisayar = new Oyuncu();
+
+	        // Kart panelini oluştur ve oyun ekranına ekle
+	        KartPaneli kartPaneli = new KartPaneli(user, bilgisayar);
+	        oyunEkrani.add(kartPaneli, BorderLayout.CENTER);
+
+	        // Oyunu görünür yap
+	        oyunEkrani.setVisible(true);
+	    });
+		*/
+		 try {
+	            writer = new BufferedWriter(new FileWriter(dosyaAdi, false));
+	         
+		
+		Scanner kart = new Scanner(System.in);
+		Scanner Tur = new Scanner(System.in);
+		Oyuncu user  = new Oyuncu("1234","hasan",0);
+		Oyuncu bilgisayar = new Oyuncu();
+		String kelime;
+		int sayi,a=0,b=0,c=0,temp=0,isaret=0;
+		String[] PCList = new String[3];
+		Random rand = new Random();
+		ArrayList<String> kullanilanKartlar = new ArrayList<>();
+		
+		System.out.println("Tur sayisi giriniz : ");
+		int tur = Tur.nextInt();
+		
+		for(int i=1;i<7;i++)
+		{
+			System.out.println(i+". karti seciniz");
+			String secim = kart.nextLine();
+			if(secim.equals("ucak"))
+			{
+				user.kartSec(1,"user");
+			}
+			else if(secim.equals("obus"))
+			{
+				user.kartSec(2,"user");
+			}
+			else if(secim.equals("firkateyn"))
+			{
+				user.kartSec(3,"user");
+			}
+		}
+		// user.kartListesi("user");
+		
+		bilgisayar.kartSec(0,"bilgisayar");
+
+		// bilgisayar.kartListesi("bilgisayar");
+		
+		for(int j=0;j<tur;j++) {
+
+			System.out.println("---------------------------");
+			yazdirDosyaya("---------------------------");
+			System.out.println("   "+(j+1)+". tur");
+			yazdirDosyaya("   "+(j+1)+". tur");
+			user.kartListesi("user");
+			yazdirDosyaya2("user kart listesi :");
+			for(int m=1;m<7;m++) {
+			       yazdirDosyaya2(user.Kartlar.get(m-1)+" ");}
+			bilgisayar.kartListesi("bilgisayar");
+			yazdirDosyaya("");
+			yazdirDosyaya2("bilgisayar kart listesi :");
+			for(int m=1;m<7;m++) {
+			       yazdirDosyaya2(bilgisayar.Kartlar.get(m-1)+" ");}
+			/*
+			System.out.println();
+			for(int i=0;i<user.kullanilanKartlar.size();i++)
+			{
+				System.out.print(user.kullanilanKartlar.get(i));
+			}
+			System.out.println();
+			for(int i=0;i<user.kullanilanKartlar.size();i++)
+			{
+				System.out.print(bilgisayar.kullanilanKartlar.get(i));
+			}
+			System.out.println();
+			*/
+			
+			System.out.print("user kullanılmayan kartlar : ");
+			user.kullanilmayanKartlar.clear();
+			for (int k = 0; k < user.Kartlar.size(); k++) {
+			    boolean kullaniliyor = false;
+			    for (int i = 0; i < user.kullanilanKartlar.size(); i++) {
+			        if (user.Kartlar.get(k).equals(user.kullanilanKartlar.get(i))) {
+			            kullaniliyor = true;
+			            break;
+			        }
+			    }
+			    if (!kullaniliyor) {
+			        user.kullanilmayanKartlar.add(user.Kartlar.get(k));
+			    }
+			}
+			
+			for(int k=0;k<user.kullanilmayanKartlar.size();k++)
+			{
+				System.out.print(user.kullanilmayanKartlar.get(k)+" ");
+			}
+			
+			System.out.println();
+			System.out.print("bilgisayar kullanılmayan kartlar : ");
+			bilgisayar.kullanilmayanKartlar.clear();
+			for (int k = 0; k < bilgisayar.Kartlar.size(); k++) {
+			    boolean kullaniliyor = false;
+			    for (int i = 0; i < bilgisayar.kullanilanKartlar.size(); i++) {
+			        if (bilgisayar.Kartlar.get(k).equals(bilgisayar.kullanilanKartlar.get(i))) {
+			            kullaniliyor = true;
+			            break;
+			        }
+			    }
+			    if (!kullaniliyor) {
+			        bilgisayar.kullanilmayanKartlar.add(bilgisayar.Kartlar.get(k));
+			    }
+			}
+			for(int k=0;k<bilgisayar.kullanilmayanKartlar.size();k++)
+			{
+				System.out.print(bilgisayar.kullanilmayanKartlar.get(k)+" ");
+			}
+			
+			System.out.println();
+        do {
+            a = rand.nextInt(bilgisayar.Kartlar.size()) + 1;
+            do {
+                b = rand.nextInt(bilgisayar.Kartlar.size()) + 1;
+            } while (a == b); 
+
+            do {
+                c = rand.nextInt(bilgisayar.Kartlar.size()) + 1;
+            } while (a == c || b == c); 
+            
+        } while (a == b && b == c && a == c);
+        
+        yazdirDosyaya("");
+        System.out.print("Bilgisayarın seçtiği kartlar : ");
+        yazdirDosyaya2("Bilgisayarın seçtiği kartlar : ");
+    	System.out.print(bilgisayar.Kartlar.get(a-1)+" ");
+    	yazdirDosyaya2(bilgisayar.Kartlar.get(a-1)+" ");
+		System.out.print(bilgisayar.Kartlar.get(b-1)+" ");
+		 yazdirDosyaya2(bilgisayar.Kartlar.get(b-1)+" ");
+		System.out.println(bilgisayar.Kartlar.get(c-1)+" ");
+		 yazdirDosyaya2(bilgisayar.Kartlar.get(c-1)+" ");     
+
+		
+		PCList[0] = bilgisayar.Kartlar.get(a-1).replaceAll("\\d", "");
+		a = Integer.parseInt(bilgisayar.Kartlar.get(a-1).replaceAll("\\D", ""));
+		
+		PCList[1] = bilgisayar.Kartlar.get(b-1).replaceAll("\\d", "");
+		b = Integer.parseInt(bilgisayar.Kartlar.get(b-1).replaceAll("\\D", ""));
+		
+		PCList[2] = bilgisayar.Kartlar.get(c-1).replaceAll("\\d", "");
+		c = Integer.parseInt(bilgisayar.Kartlar.get(c-1).replaceAll("\\D", ""));
+		
+		System.out.println("Üç tane kart seçiniz");
+		yazdirDosyaya(" kullanıcı kart seçiyor");
+		for(int i=0;i<3;i++)
+		{
+			yazdirDosyaya2(" kullanıcı kartı:");
+			String secim = kart.nextLine();
+			kelime =  secim.replaceAll("\\d", "");
+			// ucak2 ' yi ucak olarak alir
+			sayi = Integer.parseInt(secim.replaceAll("\\D", ""));
+			// ucak2 'deki 2'yi alir ve int'e çevirir.
+			
+			if(i==0) temp=a;
+			else if(i==1) temp=b;
+			else if(i==2) temp=c;
+			
+			if(PCList[i].equals("ucak"))
+			{
+			  bilgisayar.ucakList.get(temp-1).DurumGuncelle(SaldiriHesapla(kelime,PCList[i]));
+			  bilgisayar.kullanilanKartlar.add("ucak"+temp);
+
+			  if(bilgisayar.ucakList.get(temp-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(user,kelime,bilgisayar.ucakList.get(temp-1).seviyePuani,sayi-1);
+			  }
+			}
+			
+			else if(PCList[i].equals("obus"))
+			{
+			  bilgisayar.obusList.get(temp-1).DurumGuncelle(SaldiriHesapla(kelime,PCList[i]));
+			  bilgisayar.kullanilanKartlar.add("obus"+temp);
+			  if(bilgisayar.obusList.get(temp-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(user,kelime,bilgisayar.obusList.get(temp-1).seviyePuani,sayi-1);
+			  }
+			}
+			
+			else if(PCList[i].equals("firkateyn"))
+			{
+			  bilgisayar.firkateynList.get(temp-1).DurumGuncelle(SaldiriHesapla(kelime,PCList[i]));
+			  bilgisayar.kullanilanKartlar.add("firkateyn"+temp);
+			  if(bilgisayar.firkateynList.get(temp-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(user,kelime,bilgisayar.firkateynList.get(temp-1).seviyePuani,sayi-1);
+			  }
+			  
+			}
+			else if(PCList[i].equals("KFS"))
+			{
+			  bilgisayar.KFSList.get(temp-1).DurumGuncelle(SaldiriHesapla(kelime,PCList[i]));
+			  bilgisayar.kullanilanKartlar.add("KFS"+temp);
+			  if(bilgisayar.KFSList.get(temp-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(user,kelime,bilgisayar.KFSList.get(temp-1).seviyePuani,sayi-1);
+			  }
+			  
+			}
+			else if(PCList[i].equals("siha"))
+			{
+			  bilgisayar.sihaList.get(temp-1).DurumGuncelle(SaldiriHesapla(kelime,PCList[i]));
+			  bilgisayar.kullanilanKartlar.add("siha"+temp);
+			  if(bilgisayar.sihaList.get(temp-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(user,kelime,bilgisayar.sihaList.get(temp-1).seviyePuani,sayi-1);
+
+			  }
+			}
+			else if(PCList[i].equals("sida"))
+			{
+			  bilgisayar.sidaList.get(temp-1).DurumGuncelle(SaldiriHesapla(kelime,PCList[i]));
+			  bilgisayar.kullanilanKartlar.add("sida"+temp);
+			  if(bilgisayar.sidaList.get(temp-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(user,kelime,bilgisayar.sidaList.get(temp-1).seviyePuani,sayi-1);
+
+			  }
+			}
+			
+			if(kelime.equals("ucak"))
+			{
+			  user.ucakList.get(sayi-1).DurumGuncelle(SaldiriHesapla(PCList[i],kelime));
+			  user.kullanilanKartlar.add("ucak"+sayi);
+			  if(user.ucakList.get(sayi-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(bilgisayar,PCList[i],user.ucakList.get(sayi-1).seviyePuani,temp-1);
+			  }
+			}
+			
+			else if(kelime.equals("obus"))
+			{
+			  user.obusList.get(sayi-1).DurumGuncelle(SaldiriHesapla(PCList[i],kelime));
+			  user.kullanilanKartlar.add("obus"+sayi);
+			  if(user.obusList.get(sayi-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(bilgisayar,PCList[i],user.obusList.get(sayi-1).seviyePuani,temp-1);
+
+			  }
+			  
+			}
+			
+			else if(kelime.equals("firkateyn"))
+			{
+			  user.firkateynList.get(sayi-1).DurumGuncelle(SaldiriHesapla(PCList[i],kelime));
+			  user.kullanilanKartlar.add("firkateyn"+sayi);
+			  if(user.firkateynList.get(sayi-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(bilgisayar,PCList[i],user.firkateynList.get(sayi-1).seviyePuani,temp-1);
+
+			  }
+			  
+			}
+			else if(kelime.equals("KFS"))
+			{
+			  user.KFSList.get(sayi-1).DurumGuncelle(SaldiriHesapla(PCList[i],kelime));
+			  user.kullanilanKartlar.add("KFS"+sayi);
+			  if(user.KFSList.get(sayi-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(bilgisayar,PCList[i],user.KFSList.get(sayi-1).seviyePuani,temp-1);
+			    	
+			  }
+			  
+			}
+			else if(kelime.equals("siha"))
+			{
+			  user.sihaList.get(sayi-1).DurumGuncelle(SaldiriHesapla(PCList[i],kelime));
+			  user.kullanilanKartlar.add("siha"+sayi);
+			  if(user.sihaList.get(sayi-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(bilgisayar,PCList[i],user.sihaList.get(sayi-1).seviyePuani,temp-1);
+			  }
+			  
+			}
+			else if(kelime.equals("sida"))
+			{
+			  user.sidaList.get(sayi-1).DurumGuncelle(SaldiriHesapla(PCList[i],kelime));
+			  user.kullanilanKartlar.add("sida"+sayi);
+			  if(user.sidaList.get(sayi-1).getDayaniklilik()<=0) 
+			  {
+				  PuanGuncelle(bilgisayar,PCList[i],user.sidaList.get(sayi-1).seviyePuani,temp-1);
+				  
+			  }
+			  
+			}
+			  
+			  System.out.print(kelime + sayi + ": ");
+			  yazdirDosyaya2(kelime + sayi + ": ");
+			  KartPuaniGoster2(user,kelime,sayi-1);
+			  yazdirDosyaya("");
+			  yazdirDosyaya2(" bilgisayar kartı : ");
+			  System.out.print(PCList[i] + temp + ": ");
+			  yazdirDosyaya2(PCList[i] + temp + ": ");
+			  KartPuaniGoster2(bilgisayar,PCList[i],temp-1);
+			  
+			  ListedenCikart(user,kelime,sayi-1);
+			  ListedenCikart(bilgisayar,PCList[i],temp-1);
+			  
+			  System.out.println();
+			  System.out.println("user skor : "+user.skor);
+			  System.out.println("bilgisayar skor : "+bilgisayar.skor);
+			  System.out.println();
+			  yazdirDosyaya("");
+			  yazdirDosyaya("user skor : " + user.skor);
+	          yazdirDosyaya("bilgisayar skor : " + bilgisayar.skor);
+	          yazdirDosyaya("");
+			  
+		}
+		if(isaret!=0) break;
+		if(bilgisayar.Kartlar.size()==1) {bilgisayar.kartSec(0,"rastgele"); isaret++;}
+		if(user.Kartlar.size()==1) {user.kartSec(0,"rastgele"); isaret++;}
+		
+		if(bilgisayar.Kartlar.size()==0) 
+		{
+			System.out.println(user.OyuncuAdi+"kazandı");
+			yazdirDosyaya(user.OyuncuAdi+"kazandı");
+			break;
+		}
+		else if(user.Kartlar.size()==0)
+		{
+			System.out.println(bilgisayar.OyuncuAdi+"kazandı");
+			yazdirDosyaya(bilgisayar.OyuncuAdi+"kazandı");
+			break;
+		}
+		  user.kartSec(0,"rastgele");
+		  bilgisayar.kartSec(0,"rastgele");
+  }
+		
+		if(bilgisayar.Kartlar.size()!=0&&user.Kartlar.size()!=0)
+		{
+			if(user.skor==bilgisayar.skor) 
+			{
+				for(int i=0;i<user.Kartlar.size();i++)
+				{
+					user.toplamDayaniklilik+=DayaniklilikDondur(user.Kartlar.get(i),user);
+				}
+				for(int i=0;i<bilgisayar.Kartlar.size();i++)
+				{
+					bilgisayar.toplamDayaniklilik+=DayaniklilikDondur(bilgisayar.Kartlar.get(i),bilgisayar);
+				}
+				if(bilgisayar.toplamDayaniklilik>user.toplamDayaniklilik) 
+					bilgisayar.skor+=bilgisayar.toplamDayaniklilik-user.toplamDayaniklilik;
+				else if(bilgisayar.toplamDayaniklilik<user.toplamDayaniklilik) 
+					user.skor+=user.toplamDayaniklilik-bilgisayar.toplamDayaniklilik;
+			}
+			if(user.skor>bilgisayar.skor) { System.out.println(user.OyuncuAdi+" kazandı");
+			yazdirDosyaya(user.OyuncuAdi+" kazandı");}
+			else if(bilgisayar.skor>user.skor) { System.out.println(bilgisayar.OyuncuAdi+" kazandı");
+			yazdirDosyaya(bilgisayar.OyuncuAdi+" kazandı");}
+		}
+		user.kartListesi("user");
+		yazdirDosyaya("user kart listesi : ");
+		for(int m=1;m<7;m++) {
+		       yazdirDosyaya2(user.Kartlar.get(m-1)+" ");}
+		bilgisayar.kartListesi("bilgisayar");
+		yazdirDosyaya("");
+		yazdirDosyaya("bilgisayar kart listesi : ");
+		for(int m=1;m<7;m++) {
+		       yazdirDosyaya2(bilgisayar.Kartlar.get(m-1)+" ");}
+		 }
+		   catch (IOException e) {
+	           System.out.println("Dosya açılırken bir hata oluştu: " + e.getMessage());
+	       } finally 
+			 {
+	           try {
+	               if (writer != null) {
+	                   writer.close(); 
+	               }
+	           } catch (IOException e) {
+	               System.out.println("Dosya kapatılırken bir hata oluştu: " + e.getMessage());
+	           }
+	         }
+}
+	
+}
+
+
+
+
+
