@@ -1,0 +1,25 @@
+---------------------------
+   1. tur
+user kart listesi :ucak1 ucak2 ucak3 ucak4 ucak5 ucak6 
+bilgisayar kart listesi :firkateyn1 ucak1 firkateyn2 firkateyn3 ucak2 ucak3 
+Bilgisayarın seçtiği kartlar : ucak2 ucak1 firkateyn2  kullanıcı kart seçiyor
+ kullanıcı kartı:ucak1:  dayaniklilik : 10 seviye puani : 0
+ bilgisayar kartı : ucak2:  dayaniklilik : 10 seviye puani : 0
+user skor : 0
+bilgisayar skor : 0
+
+ kullanıcı kartı:ucak2:  dayaniklilik : 10 seviye puani : 0
+ bilgisayar kartı : ucak1:  dayaniklilik : 10 seviye puani : 0
+user skor : 0
+bilgisayar skor : 0
+
+ kullanıcı kartı:ucak3:  dayaniklilik : 5 seviye puani : 0
+ bilgisayar kartı : firkateyn2:  dayaniklilik : 15 seviye puani : 0
+user skor : 0
+bilgisayar skor : 0
+
+bilgisayar kazandı
+user kart listesi : 
+ucak1 ucak2 ucak3 ucak4 ucak5 ucak6 
+bilgisayar kart listesi : 
+firkateyn1 ucak1 firkateyn2 firkateyn3 ucak2 ucak3 
